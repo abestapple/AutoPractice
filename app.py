@@ -143,22 +143,39 @@ css = '''
 <style>
 
 	.stTabs [data-baseweb="tab-list"] {
-		gap: 5rem;
+		gap: 3rem;
     }
 
 	.stTabs [data-baseweb="tab"] {
 		height: 40px;
+		width: 40px;
         white-space: pre-wrap;
 		border-radius: 4px 4px 0px 0px;
-		gap: 10px;
+		gap: 0px;
 		padding-top: 10px;
 		padding-bottom: 10px;
     }
 
 	.stTabs [aria-selected="true"] {
   		background-color: #FFFFFF;
-	} p {font-size:16px;white-space:nowrap;}
+	} 
+	p {font-size:16px;}
 
+	.stTabs st-bq{
+		width:auto;
+	}
+	#tabs-bui2-tab-0 {
+		width:50px;
+	}
+	#tabs-bui2-tab-1 {
+		width:50px;
+	}
+	#tabs-bui2-tab-2{
+		width:50px;
+	}
+	#tabs-bui2-tab-3{
+		width:50px;
+	}
 </style>
 '''
 
