@@ -157,7 +157,7 @@ css = '''
 
 	.stTabs [aria-selected="true"] {
   		background-color: #FFFFFF;
-	} p {font-size:16px;}
+	} p {font-size:16px;white-space:nowrap;}
 
 </style>
 '''
