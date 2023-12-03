@@ -147,18 +147,17 @@ css = '''
     }
 
 	.stTabs [data-baseweb="tab"] {
-		height: 50px;
-		width:100%;
+		height: 40px;
         white-space: pre-wrap;
 		border-radius: 4px 4px 0px 0px;
-		gap: 50px;
+		gap: 10px;
 		padding-top: 10px;
 		padding-bottom: 10px;
     }
 
 	.stTabs [aria-selected="true"] {
   		background-color: #FFFFFF;
-	} p {font-size:20px;}
+	} p {font-size:16px;}
 
 </style>
 '''
@@ -168,16 +167,17 @@ st.markdown(css, unsafe_allow_html=True)
 css = '''
 <style>
     .stTabs [data-baseweb="tab-list"] button [data-testid="stMarkdownContainer"] p {
-    font-size:1.5rem;
+    font-size:16px;
     }
 </style>
 '''
 
 st.markdown(css, unsafe_allow_html=True)
+
 css = '''
 <style>
     .stRadio .st-dh{
-    font-size:20px;
+    font-size:16px;
     }
 </style>
 '''
