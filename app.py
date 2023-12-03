@@ -174,3 +174,12 @@ css = '''
 '''
 
 st.markdown(css, unsafe_allow_html=True)
+css = '''
+<style>
+    .stRadio .st-dh{
+    font-size:20px;
+    }
+</style>
+'''
+
+st.markdown(css, unsafe_allow_html=True)
