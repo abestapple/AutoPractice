@@ -121,7 +121,7 @@ with tab3:
 			else:
 				st.write(st.session_state["question3"][5])
 	if b4:
-		A=Choice("单选")
+		A=Choice("判断")
 		st.session_state["question3"]=A	
 with tab4:
 	if not st.session_state["state4"]:
