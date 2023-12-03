@@ -2,8 +2,8 @@ import streamlit as st
 from data import Choice
 
 
-tab1, tab2, tab3,tab4 = st.tabs(["单选", "多选", "判断","主观"])
-
+tabs= st.tabs(["单选", "多选", "判断","主观"])
+tab1, tab2, tab3,tab4=tabs
 if 'question1' not in st.session_state:
 	st.session_state["question1"]=[]
 if 'question2' not in st.session_state:
@@ -21,15 +21,17 @@ if 'state3' not in st.session_state:
 if 'state4' not in st.session_state:
 	st.session_state["state4"]=False
 with tab1:
+	st.write("")
 	if not st.session_state["state1"]:
 		A=Choice("单选")
 		st.session_state["state1"]=True
 		st.session_state["question1"]=A
 	content=st.session_state["question1"][3].split("$;$")
 	st.write(st.session_state["question1"][2])
+	st.info("请根据题目选出正确答案!")
 	answer4=False
 	genre = st.radio(
-	"请根据题目选出正确答案:",
+	"",
 	["A: {}".format(content[0]), "B: {}".format(content[1]), "C: {}".format(content[2]),"D: {}".format(content[3])])
 
 
@@ -42,9 +44,9 @@ with tab1:
 		b01=st.button("下一题",key="q11",type="primary")
 	if b0:
 		if answer4:
-			st.write("回答正确！")
+			st.success("回答正确！")
 		else:
-			st.write("答错了！，正确答案是 {}".format(st.session_state["question1"][4]))
+			st.error("答错了！，正确答案是 {}".format(st.session_state["question1"][4]))
 			st.write("答案解析：")
 			if st.session_state["question1"][5]:
 				st.write("")
@@ -54,13 +56,14 @@ with tab1:
 		A=Choice("单选")
 		st.session_state["question1"]=A		
 with tab2:
+	st.write("")
 	if not st.session_state["state2"]:
 		A=Choice("多选")
 		st.session_state["state2"]=True
 		st.session_state["question2"]=A
 	content=st.session_state["question2"][3].split("$;$")
 	st.write(st.session_state["question2"][2])
-	st.write("请根据题目选出正确答案:")
+	st.info("请根据题目选出正确答案!")
 	answer=[]
 	option_1 = st.checkbox("A: {}".format(content[0]))
 	option_2 = st.checkbox("B: {}".format(content[1]))
@@ -81,9 +84,9 @@ with tab2:
 		b2=st.button("下一题",key="ss",type="primary")
 	if b1:
 		if "".join(answer)==st.session_state["question2"][4]:
-			st.write("答对了！")
+			st.success("答对了！")
 		else:
-			st.write("答错了！，正确答案是 {}".format(st.session_state["question2"][4]))
+			st.error("答错了！，正确答案是 {}".format(st.session_state["question2"][4]))
 			st.write("答案解析：")
 			if st.session_state["question2"][5]:
 				st.write("")
@@ -93,14 +96,16 @@ with tab2:
 		A=Choice("多选")
 		st.session_state["question2"]=A	
 with tab3:
+	st.write("")
 	if not st.session_state["state3"]:
 		A=Choice("判断")
 		st.session_state["state3"]=True
 		st.session_state["question3"]=A
 	content=st.session_state["question3"][3].split("$;$")
 	st.write(st.session_state["question3"][2])
+	st.info("请根据题目选出正确答案!")
 	genre = st.radio(
-	"请根据题目选出正确答案:",
+	"",
 	["A: {}".format(content[0]), "B: {}".format(content[1])])
 	answer3=False
 	if genre[0] == st.session_state["question3"][4]:
@@ -112,9 +117,9 @@ with tab3:
 		b4=st.button("下一题",key="q2",type="primary")
 	if b3:
 		if answer3:
-			st.write("回答正确！")
+			st.success("回答正确！")
 		else:
-			st.write("答错了！，正确答案是 {}".format(st.session_state["question3"][4]))
+			st.error("答错了！，正确答案是 {}".format(st.session_state["question3"][4]))
 			st.write("答案解析：")
 			if st.session_state["question3"][5]:
 				st.write("")
@@ -124,6 +129,7 @@ with tab3:
 		A=Choice("判断")
 		st.session_state["question3"]=A	
 with tab4:
+	st.write("")
 	if not st.session_state["state4"]:
 		A=Choice("主观")
 		st.session_state["state4"]=True
@@ -132,3 +138,39 @@ with tab4:
 	st.write("答：",st.session_state["question4"][4])
 	if st.button("下一题",key="csss",type="primary"):
 		st.session_state["state4"]=False
+
+css = '''
+<style>
+
+	.stTabs [data-baseweb="tab-list"] {
+		gap: 5rem;
+    }
+
+	.stTabs [data-baseweb="tab"] {
+		height: 50px;
+		width:100%;
+        white-space: pre-wrap;
+		border-radius: 4px 4px 0px 0px;
+		gap: 50px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+    }
+
+	.stTabs [aria-selected="true"] {
+  		background-color: #FFFFFF;
+	} p {font-size:20px;}
+
+</style>
+'''
+
+st.markdown(css, unsafe_allow_html=True)
+
+css = '''
+<style>
+    .stTabs [data-baseweb="tab-list"] button [data-testid="stMarkdownContainer"] p {
+    font-size:1.5rem;
+    }
+</style>
+'''
+
+st.markdown(css, unsafe_allow_html=True)
