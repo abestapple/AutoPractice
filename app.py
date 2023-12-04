@@ -198,6 +198,7 @@ css = '''
 	#tabs-bui2-tab-3{
 		width:50px;
 	}
+	.css-14xtw13.e8zbici0{visibility:hidden;
 
 </style>
 '''
