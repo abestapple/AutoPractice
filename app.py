@@ -1,7 +1,7 @@
 import streamlit as st
 from data import Choice
 
-
+st.set_page_config(page_title="答题")
 tabs= st.tabs(["单选", "多选", "判断","主观"])
 tab1, tab2, tab3,tab4=tabs
 if 'question1' not in st.session_state:
