@@ -77,6 +77,7 @@ with tab2:
 	if len(content)==4:
 		option_4 = st.checkbox("D: {}".format(content[3]))
 	if len(content)==5:
+		option_4 = st.checkbox("D: {}".format(content[3]))
 		option_5 = st.checkbox("E: {}".format(content[4]))
 	if option_1:
 		answer.append("A")
@@ -88,6 +89,8 @@ with tab2:
 		if option_4:
 			answer.append("D")
 	if len(content)==5:
+		if option_4:
+			answer.append("D")
 		if option_5:
 			answer.append("E")
 	col1, col2= st.columns(2)
